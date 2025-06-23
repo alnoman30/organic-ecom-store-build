@@ -130,7 +130,13 @@
                 </a>
                 <ul>
                     <li class="">
-                        <a href="create-product.html">
+                        <a href="{{ route('admin.blog.category')}}">
+                            <i class="fa fa-circle"></i>
+                            <span>Category</span>
+                        </a>
+                    </li>
+                    <li class="">
+                        <a href="products.html">
                             <i class="fa fa-circle"></i>
                             <span>Add Blog</span>
                         </a>
@@ -138,7 +144,7 @@
                     <li class="">
                         <a href="products.html">
                             <i class="fa fa-circle"></i>
-                            <span>Blogs List</span>
+                            <span>Blog List</span>
                         </a>
                     </li>
                 </ul>
