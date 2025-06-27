@@ -8,20 +8,20 @@
             <!-- Container Fluid-->
             <div class="page-content">
                 <div class="container-fluid">
-                    <div id="table-url" data-url="/admin/category"></div>
+                    <div id="table-url" data-url=""></div>
                     <div class="row">
                         <div class="col-md-12">
                             <div class="breadcrumb__content">
                                 <div class="breadcrumb__content__left">
                                     <div class="breadcrumb__title">
-                                        <h2>Blog category</h2>
+                                        <h2>Blogs</h2>
                                     </div>
                                 </div>
                                 <div class="breadcrumb__content__right">
                                     <nav aria-label="breadcrumb">
                                         <ul class="breadcrumb">
                                             <li class="breadcrumb-item"><a href="/admin/dashboard">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page">Blog category</li>
+                                            <li class="breadcrumb-item active" aria-current="page">blogs</li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -33,24 +33,33 @@
                             <div class="customers__area bg-style mb-30">
                                 <div class="item-title">
                                     <div class="col-xs-6">
-                                        <a href="{{ route('admin.blog.category.create')}}" class="btn btn-md btn-info">Add category</a>
+                                        <a href="{{ route('admin.blogs.create')}}" class="btn btn-md btn-info">Add Blog</a>
                                     </div>
                                 </div>
                                 <div class="customers__table">
-                                    <table id="categoryTable"
+                                    <table id="BrandTable"
                                         class="row-border data-table-filter table-style dataTable no-footer" role="grid"
-                                        aria-describedby="categoryTable_info" style="width: 1195px;">
+                                        aria-describedby="BrandTable_info" style="width: 1195px;">
                                         <thead>
                                             <tr role="row">
-                                                <th class="sorting_asc" tabindex="0" aria-controls="categoryTable"
+                                                <th class="sorting_asc" tabindex="0" aria-controls="BrandTable"
                                                     rowspan="1" colspan="1" aria-sort="ascending"
-                                                    aria-label="category Name: activate to sort column descending"
-                                                    style="width: 112px;">category Name</th>
-                                                <th class="sorting" tabindex="0" aria-controls="categoryTable" rowspan="1"
+                                                    aria-label="Brand Name: activate to sort column descending"
+                                                    style="width: 112px;">Blog title</th>
+                                                <th class="sorting" tabindex="0" aria-controls="BrandTable" rowspan="1"
+                                                colspan="1"
+                                                aria-label="Brand Image: activate to sort column ascending"
+                                                style="width: 233px;">Image</th>
+                                                <th class="sorting" tabindex="0" aria-controls="BrandTable" rowspan="1"
                                                     colspan="1"
-                                                    aria-label="category Slug: activate to sort column ascending"
-                                                    style="width: 258px;">category Slug</th>
-                                                <th class="sorting" tabindex="0" aria-controls="categoryTable" rowspan="1"
+                                                    aria-label="Brand Slug: activate to sort column ascending"
+                                                    style="width: 258px;">Blog Slug</th>
+                                                <th class="sorting_asc" tabindex="0" aria-controls="BrandTable"
+                                                    rowspan="1" colspan="1" aria-sort="ascending"
+                                                    aria-label="Brand Name: activate to sort column descending"
+                                                    style="width: 112px;">Category</th>
+
+                                                <th class="sorting" tabindex="0" aria-controls="BrandTable" rowspan="1"
                                                     colspan="1" aria-label="Status: activate to sort column ascending"
                                                     style="width: 258px;">Status</th>
                                                 <th class="sorting_disabled" rowspan="1" colspan="1" aria-label="Action"
@@ -58,18 +67,21 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach ($categories as $blogcat )
+                                            @foreach ($blogs as $blog)
                                             <tr role="row" class="odd">
-                                                <td class="sorting_1">{{ $blogcat->name}}</td>
-                                                <td>{{ $blogcat->slug}}</td>
-                                                
-                                                <td><span class="status active">Active</span></td>
+                                                <td class="sorting_1">{{ $blog->title }}</td>
+                                                <td><img src="{{ asset('uploads/blogs')}}/{{ $blog->image }}" border="0" width="70"
+                                                        class="img-rounded" align="center"></td>
+                                                <td>{{ $blog->slug }}</td>
+                                                <td>{{ $blog->blogCategory->name }}</td>
+                                                <td><span class="status active">Active</span>
+                                                </td>
                                                 <td>
                                                     <div class="action__buttons">
-                                                        <a href="{{ route('admin.blog.category.edit', $blogcat->id)}}"
+                                                        <a href="{{ route('admin.blogs.edit', $blog->id)}}"
                                                             class="btn-action" title="Edit"><i class="fas fa-pen-to-square"></i>
                                                         </a>
-                                                        <form method="POST" action="{{ route('admin.blog.category.delete', $blogcat->id) }}" class="d-inline delete-category-form">
+                                                        <form method="POST" action="{{ route('admin.blogs.delete', $blog->id) }}" class="d-inline delete-category-form">
                                                             @csrf
                                                             @method('DELETE')
                                                             <button type="button" class="btn-action delete-btn" style="margin-left: 20px;">
@@ -84,10 +96,9 @@
 
                                         </tbody>
                                     </table>
-                                    <div class=" mt-4">
-                                        {{ $categories->links('pagination::bootstrap-5') }}
+                                     <div class=" mt-4">
+                                        {{ $blogs->links('pagination::bootstrap-5') }}
                                     </div>
-                                    
                                 </div>
                             </div>
                         </div>
@@ -95,7 +106,24 @@
                     <!--Row-->
                 </div>
             </div>
-
+            <!-- Footer section start -->
+            <footer class="footer__area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="footer__copyright">
+                                <div class="footer__copyright__left">
+                                    <h2>2024 &copy; Fashionwave</h2>
+                                </div>
+                                <div class="footer__copyright__right">
+                                    <h2>Designed &amp; Developed By Fashionwave</h2>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+            <!-- Footer section end -->
         </div>
 
     </div>

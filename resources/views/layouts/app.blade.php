@@ -137,7 +137,7 @@
           
           <div class="col-sm-4 col-lg-2 text-center text-sm-start d-flex gap-3 justify-content-center justify-content-md-start">
             <div class="d-flex align-items-center my-3 my-sm-0">
-              <a href="index.html">
+              <a href="{{ route('home')}}">
                 <img src="{{ asset('assets/images/logo.svg')}}" alt="logo" class="img-fluid">
               </a>
             </div>
@@ -154,7 +154,7 @@
                 </select>
               </div>
               <div class="col-11 col-md-7">
-                <form id="search-form" class="text-center" action="index.html" method="post">
+                <form id="search-form" class="text-center" action="{{ route('home')}}" method="post">
                   <input type="text" class="form-control border-0 bg-transparent" placeholder="Search for more than 20,000 products">
                 </form>
               </div>
@@ -167,7 +167,7 @@
           <div class="col-lg-4">
             <ul class="navbar-nav list-unstyled d-flex flex-row gap-3 gap-lg-5 justify-content-center flex-wrap align-items-center mb-0 fw-bold text-uppercase text-dark">
               <li class="nav-item active">
-                <a href="index.html" class="nav-link">Home</a>
+                <a href="{{ route('home')}}" class="nav-link">Home</a>
               </li>
               <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle pe-3" role="button" id="pages" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
@@ -176,7 +176,7 @@
                   <li><a href="shop.html" class="dropdown-item">Shop </a></li>
                   <li><a href="cart.html" class="dropdown-item">Cart </a></li>
                   <li><a href="checkout.html" class="dropdown-item">Checkout </a></li>
-                  <li><a href="blog.html" class="dropdown-item">Blog </a></li>
+                  <li><a href="{{ route('blog')}}" class="dropdown-item">Blog </a></li>
                   <li><a href="contact.html" class="dropdown-item">Contact </a></li>
                   <li><a href="dashboard.html" class="dropdown-item">My Account </a></li>
                 </ul>

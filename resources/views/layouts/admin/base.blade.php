@@ -14,6 +14,7 @@
     <link rel="apple-touch-icon" href="{{ asset('backend/assets/images/favicon.png') }}">
 
     <!-- All CSS files included here -->
+    
     <link rel="stylesheet" href="{{ asset('backend/assets/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('backend/assets/css/bootstrap.min.css') }}">
     <link href="{{ asset('backend/assets/css/jquery.dataTables.min.css') }}" rel="stylesheet">
@@ -136,13 +137,7 @@
                         </a>
                     </li>
                     <li class="">
-                        <a href="products.html">
-                            <i class="fa fa-circle"></i>
-                            <span>Add Blog</span>
-                        </a>
-                    </li>
-                    <li class="">
-                        <a href="products.html">
+                        <a href="{{ route('admin.blogs')}}">
                             <i class="fa fa-circle"></i>
                             <span>Blog List</span>
                         </a>
